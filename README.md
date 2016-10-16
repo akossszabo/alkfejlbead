@@ -72,18 +72,14 @@ Issue tracker alkalmazás, mely szoftverfejlesztő cégeknek könnyíti meg a na
 * Feladat kiosztás, feladat elvégzése
 ![workflow](workflow.jpg)
 
-### Végpontok
-
-*####GET/: ######feladatlista megtekintése
-POST/: feladat elvégzésének beküldése
-GET/reg: regisztrációs oldal megtekintése
-POST/reg: regisztrációs kérés küldése
-GET/login: bejelentkező oldal
-POST/login: bejelentkezési adatok küldése
-GET/profile: profil megtekintése
-POST/profile: profil frissítése
-GET/add: új feladat hozzáadásának űrlapja
-POST/add: új feladat beküldése
-GET/history: elvégzett feladatok listája
-
 ### Desing terv
+##### Kezdetleges, letisztult oldalak (változhatnak a fejlesztés során)
+* Bejelentkezés
+![loginpage](loginPage.JPG)
+* Projektek listázása
+![projects](projects.JPG)
+* Munka logolás
+![logwork](issueworklog.JPG)
+*Profil szerkesztése
+![profile](profile.jpg)
+
