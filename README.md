@@ -33,15 +33,40 @@ Issue tracker alkalmazás, mely szoftverfejlesztő cégeknek könnyíti meg a na
 
 ### Modellek
 
+![models](models.jpg)
 
 ### Jogosultságok
+#### - Vezető fejlesztő/Projekt menedzser
+
+* Mindent megtekinthet 
+* Szerkeszthet, létrehozhat (Projekt, Task, Issue)
+
+#### - Szoftverfejlesztő
+
+* Feladatot elkezdhet, erről leírást adhat
+* Láthatja az összes feladatot, de csak a sajátját módosíthatja (work log) 
 
 ### Oldaltérkép 
+#### - Vezető fejlesztő/Projekt menedzser
 
-### Use-case diagramok 
+* Bejelentkezés
+* Projekt, Task, Issue listák megtekintése
+* Fejlesztő lista megtekintése, feladatok kiosztása
+* Bármi felülbírálása
+* Profil oldal
+
+#### - Szoftverfejlesztő
+
+* Bejelentkezés
+* Projekt, Task, Issue megtekintés
+* Saját issue szerkesztése (Megvalósítás leírása, idő beállítása) 
+* Profil szerkesztése
+
+### Use-case diagramok
 ![usecases](usecases.jpg)
-### Folyamatok
 
+### Folyamatok
+![login](login.jpg)
 ### Végpontok
 
 ### Desing terv
