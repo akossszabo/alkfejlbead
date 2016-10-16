@@ -75,11 +75,18 @@ Issue tracker alkalmazás, mely szoftverfejlesztő cégeknek könnyíti meg a na
 ### Desing terv
 ##### Kezdetleges, letisztult oldalak (változhatnak a fejlesztés során)
 * Bejelentkezés
+
 ![loginpage](loginPage.JPG)
+
 * Projektek listázása
+
 ![projects](projects.JPG)
+
 * Munka logolás
+
 ![logwork](issueworklog.JPG)
-*Profil szerkesztése
+
+* Profil szerkesztése
+
 ![profile](profile.jpg)
 
