@@ -39,7 +39,7 @@ Issue tracker alkalmazás, mely szoftverfejlesztő cégeknek könnyíti meg a na
 ### Oldaltérkép 
 
 ### Use-case diagramok 
-
+[usecases](usecases.jpg)
 ### Folyamatok
 
 ### Végpontok
