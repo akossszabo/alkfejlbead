@@ -90,3 +90,15 @@ Issue tracker alkalmazás, mely szoftverfejlesztő cégeknek könnyíti meg a na
 
 ![profile](profile.jpg)
 
+###Felhasználói dokumentáció
+
+* A felhasználó bejelentkezés nélkül csak a projekteket láthatja a Projects menü alatt. 
+
+* A signin fülön regisztrálhat, utána eléri az alkalmazás többi funkcióját is, indíthat egy projektet ( több fajtát ) 
+  Projects fül -> create project vagy start project fül. 
+  
+* Projekt létrehozása után a felhasználó issue-kat hozhat létre, ezek mindig egy projekthez tartoznak és mindig egy felhasználót rendelünk hozzá, akinek meg kell oldani a feladatot. 
+
+* A felhasználó a jobb felső sarokban a nevére kattintva megtekintheti, hogy milyen issue-kat rendeltek hozzá.
+
+
