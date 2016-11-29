@@ -1,0 +1,40 @@
+{% extends 'master' %}
+
+{% block content %}
+
+<div class="row">
+    
+<h2>Project: {{project.name}}</h2>
+  <p>{{project.description}}</p>
+
+  <h3>{{project.name}}'s issues: </h3>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Issue name</th>
+        <th>Start date</th>
+        <th>Assignee </th>
+        <th>Description </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in issues %}
+      <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.created_at }}</td>
+        <td>{{ i.assignee }}</td>
+        <td>{{ i.started }}</td>
+        <td>
+        <form action="{{project.id}}/removeissue/{{i.id}}">
+        <button type="submit" class="btn btn-success">remove issue</button>
+        </form>
+        </td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+   <form action="{{project.id}}/createissue">
+    <button type="submit" class="btn btn-success">create issue</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'master' %}
+
+{% block content %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>Mini-jira dashboard</h1>
+     {% if currentUser %} 
+    <p>Welcome to mini-jira, here you can create new projects, add issues to projects and trace the workflow. </p> 
+    {% else %}
+    <p>Welcome to mini-jira, after login you can start new projects and manage your company's workflows. </p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'master' %}
+
+{% block content %}
+
+<div class="row">
+    
+<h2>The company's projects</h2>
+  <p>In this table you can see the projects' list</p>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Start date</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for p in projects %}
+      <tr>
+        {% if currentUser %} 
+        <td><a href="projects/{{ p.id }}">{{ p.name }}</a></td>
+        {% else %}
+        <td>{{ p.name }}</td>
+        {% endif %}
+        <td>{{ p.description }}</td>
+        <td>{{ p.created_at }}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  {% if currentUser %} 
+   <form action="/createproject">
+    <button type="submit" class="btn btn-success">create project</button>
+    </form>
+    {% endif %}
+        </div>
+    </div>
+    
+{% endblock %}
