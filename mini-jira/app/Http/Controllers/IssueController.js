@@ -3,7 +3,7 @@
 const User = use('App/Model/User')
 const Issue = use('App/Model/issues')
 const Project = use('App/Model/projects')
-
+const Worklog = use('App/Model/worklogs')
 const Validator = use('Validator')
 class IssueController{
 
@@ -71,6 +71,33 @@ class IssueController{
         res.redirect(`/projects/${id}`)
     }
 
-}
+    * removeWlog (req, res) {
+        const wlog = yield Worklog.find(req.param('id'))
+        const id = wlog.assignee_id
+        yield wlog.delete()
+        res.redirect(`/profile/${id}`)
+    }
+
+    * logWork(req,res){
+        const issues = yield Issue.all()
+        yield res.sendView('logWork',{
+        issues : issues.toJSON()
+        })
+    }
+
+    * doLog(req,res){
+        // 1. input
+        const logData = req.all()
+        const worklog = new Worklog()
+        worklog.description = logData.description
+        worklog.timeworked = logData.timeworked
+        worklog.assignee_id = req.param('uid')
+        worklog.issue_id = logData.issueId
+        yield worklog.save()
+            res.redirect('/projects')
+            return
+        }
+    }
+
 
 module.exports = IssueController

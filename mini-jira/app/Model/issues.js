@@ -10,6 +10,9 @@ class issues extends Lucid {
    assignee () {
     return this.belongsTo('App/Model/User')
   }
+  worklogs(){
+    return this.hasMany('App/Model/worklog')
+  }
 
 }
 

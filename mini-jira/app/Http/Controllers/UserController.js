@@ -4,6 +4,9 @@
 const User = use('App/Model/User')
 const Hash = use('Hash')
 const Issue = use('App/Model/issues')
+const Worklog = use('App/Model/worklogs')
+
+const Validator = use('Validator')
 
 class UserController {
     * register (req, res) {
@@ -24,6 +27,17 @@ class UserController {
             'name': 'required',
             'password': 'required|min:4',
             'password_again': 'required|same:password'
+        }
+
+        const validation = yield Validator.validateAll(empData, rules)
+        if (validation.fails()) {
+            yield req
+                .withAll()
+                .andWith({ errors: validation.messages() })
+                .flash()
+
+            res.redirect('/register')
+            return
         }
 
         // 3. business logic
@@ -71,16 +85,67 @@ class UserController {
 
     * getProfile(req,res){
         const issues = yield Issue.query().where('assignee_id', req.param('id')).fetch()
+        const worklogs = yield Worklog.query().where('assignee_id',req.param('id')).fetch()
         if (issues != null){
             yield res.sendView('profile', {
-            issues: issues.toJSON()
+            issues: issues.toJSON(),
+            worklogs: worklogs.toJSON()
         })
         }else{
-          yield res.sendView('profile'
-        )  
+          yield res.sendView('profile')  
         }
-        
     }
+
+    * edit (req, res) {
+        const user = yield User.find(req.param('id'))
+
+        yield res.sendView('editUser', {
+            user: user.toJSON()
+        })
+
+    }
+
+    * doEdit (req, res) {
+        const user = yield User.find(req.param('id'))
+
+        if (user === null) {
+            res.notFound('Sorry, user not found.')
+            return
+        }
+
+        // 1. input
+        const userData = req.all()
+
+        // 2. validáció
+        const rules = {
+            'email': 'required|email',
+            'username': 'required',
+        }
+
+        const validation = yield Validator.validateAll(userData, rules)
+        if (validation.fails()) {
+            yield req
+                .withAll()
+                .andWith({ errors: validation.messages() })
+                .flash()
+
+            res.redirect(`/profile/${user.id}/edit`)
+            return
+        }
+
+        // TODO: check category
+
+        user.username = userData.username
+        user.email = userData.email
+        user.firstname = userData.firstname
+        user.lastname = userData.lastname
+
+        yield user.save()
+
+        res.redirect(`/profile/${user.id}`)
+    }
+
+
 }
 
 module.exports = UserController

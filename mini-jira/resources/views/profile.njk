@@ -5,7 +5,9 @@
 <div class="row">
     
 <h2>{{currentUser.username}}</h2>
-
+<form action="{{currentUser.id}}/edit">
+    <button type="submit" class="btn btn-success">edit profile</button>
+    </form>
   <h3>{{currentUser.username}}'s issues: </h3>            
   <table class="table table-hover">
     <thead>
@@ -27,8 +29,35 @@
         
         </td>
       </tr>
-        {% endfor %}
+    {% endfor %}      
     </tbody>
   </table>
+<h3>{{currentUser.username}}'s worklogs: </h3>   
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Worklog description</th>
+        <th>timeworked</th>
+        <th>assignee_id</th>
+        <th>issue_id</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for w in worklogs %}
+      <tr>
+        <td>{{ w.description }}</td>
+        <td>{{ w.timeworked }}</td>
+        <td>{{ w.assignee_id }}</td>
+        <td>{{ w.issue_id }}</td>
+        <td>
+        <form action="/removewlog/{{w.id}}">
+        <button type="submit" class="btn btn-success">remove</button>
+        </form>
+        </td>
+      </tr>
+    {% endfor %}      
+    </tbody>
+  </table>
+  
 </div>
 {% endblock %}
