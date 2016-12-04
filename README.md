@@ -101,4 +101,54 @@ Issue tracker alkalmazás, mely szoftverfejlesztő cégeknek könnyíti meg a na
 
 * A felhasználó a jobb felső sarokban a nevére kattintva megtekintheti, hogy milyen issue-kat rendeltek hozzá.
 
+####Végpontok
 
+* / - kezdőoldal
+* /register - regisztráció
+* /login - bejelentkezés
+* /logout - kijelentkezés
+* /projects - projektek listája
+* projects/ {id} - itt a projekt egyesével való részletesebb leírása
+* /projects/{id}/edit - projekt szerkesztése
+* /createproject - projekt létrehozása
+* /projects/{id}/createissue - issue létrehozása projethez
+* /projects/logwork/{id} - elvégzett munka naplózása
+* /removewlog/{id} - naplóbejegyzés törlése 
+* /projects/{pid}/removeissue/{uid} - issue törlése
+* /profile/{id}/edit - profil szerkesztése
+* /profile/{id} - profil megtekintése
+
+
+####Fogalomjegyzék 
+
+* issue- egy projekthez tartozó részfeladat
+* assignee - akit kijelöltek a munka elvégzésére, egy issue mindig tartozik egy emberhez
+* worklog - az issue-hoz tartozik, rövid leírás, hogy a feladatból mit valósítottunk meg és mennyi idő alatt
+
+A profil oldalon a felhasználó megtekintheti, hogy milyen issue-k tartoznak hozzá és azt, hogy milyen naplóbejegyzései vannak
+
+####Telepítés 
+
+a. ZIP letöltése
+
+b. akossszabo/alkfejlbead klónozása
+
+c. akossszabo/alkfejlbead forkolása és a saját repo klónozása
+
+npm install
+.env.example fájl átnevezése .env-re
+npm run dev paranccsal futtatni
+localhost:3333 megnyitása, itt fog futni az alkalmazás
+
+####Mappaszerkezet
+
+Számunkra fontosabb mappák: 
+
+* resources/views - itt találhatók meg a a megjelenítendő oldalak
+* database - itt találhatók a migrationok
+* App/Http - a Controllerek, amik az adatbázis és a view-k közti kommunikációt valósítja meg
+* App/Model - Az adatbázisok közti kapcsolatok meghatározása
+
+####Hardver követelmények
+
+* számítógép és windows/linux/ mac os
