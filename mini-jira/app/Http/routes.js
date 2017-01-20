@@ -4,7 +4,7 @@ const Route = use('Route')
 
 Route.get('/', 'IssueController.main')
 Route.get('/login', 'UserController.login')
-Route.post('/login', 'UserController.doLogin')
+Route.post('/login', 'UserController.ajaxLogin')
 Route.get('/logout', 'UserController.doLogout')
 Route.get('/register', 'UserController.register')
 Route.post('/register', 'UserController.doRegister')
@@ -19,10 +19,12 @@ Route.post('/projects/:id/createissue', 'IssueController.doCreate').middleware('
 
 Route.get('projects/logwork/:uid', 'IssueController.logWork').middleware('auth')
 Route.post('projects/logwork/:uid', 'IssueController.doLog').middleware('auth')
-Route.get('/projects/:pid/removeissue/:id', 'IssueController.remove').middleware('auth')
+//Route.get('/projects/:pid/removeissue/:id', 'IssueController.remove').middleware('auth')
 Route.get('/profile/:id','UserController.getProfile').middleware('auth')
 
-Route.get('/removewlog/:id','IssueController.removeWlog').middleware('auth')
+Route.get('/removewlog/:id','IssueController.ajaxWlogDelete').middleware('auth')
 
 Route.get('/profile/:id/edit','UserController.edit').middleware('auth')
 Route.post('/profile/:id/edit','UserController.doEdit').middleware('auth')
+
+Route.get('/projects/:pid/removeissue/:id', 'IssueController.ajaxDelete').middleware('auth')

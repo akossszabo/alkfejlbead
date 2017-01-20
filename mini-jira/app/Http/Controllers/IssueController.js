@@ -97,6 +97,25 @@ class IssueController{
             res.redirect('/projects')
             return
         }
+
+        * ajaxDelete (req, res) {
+         const issue = yield Issue.find(req.param('id'))
+ 
+         yield issue.delete()
+ 
+         res.ok({
+             success: true
+         })
+     }
+     * ajaxWlogDelete (req, res) {
+         const wlog = yield Worklog.find(req.param('id'))
+ 
+         yield wlog.delete()
+ 
+         res.ok({
+             success: true
+         })
+     }
     }
 
 

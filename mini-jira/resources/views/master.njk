@@ -48,7 +48,7 @@
                 <li><a href="/profile/{{currentUser.id}}">{{ currentUser.username }}!</a></li>
                 <li><a href="/logout">Logout</a></li>
                 {% else %}
-                <li><a href="/login"><span class="glyphicon glyphicon-log-in">Login</span></a></li>
+                <li><a href="/login"  id="loginButton"><span class="glyphicon glyphicon-log-in">Login</span></a></li>
                 <li><a href="/register"><span class="glyphicon glyphicon-user">Signin</span></a></li>
                 {% endif %}
             </ul>
@@ -65,6 +65,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="/scripts/ajaxLogin.js"></script>
     {% block scripts %}{% endblock %}
   </body>
 </html>

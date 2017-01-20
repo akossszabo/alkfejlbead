@@ -1,5 +1,9 @@
 {% extends 'master' %}
 
+{% block scripts %}
+ <script src="/scripts/ajaxDelete.js"></script>
+ {% endblock %}
+
 {% block content %}
 
 <div class="row">
@@ -28,9 +32,10 @@
         <td>{{ i.assignee }}</td>
         <td>{{ i.started }}</td>
         <td>
-        <form action="{{project.id}}/removeissue/{{i.id}}">
-        <button type="submit" class="btn btn-success">remove issue</button>
-        </form>
+        <form action="{{project.id}}/removeissue/{{i.id}}" method="POST" id="deleteIssueForm">
+      {{ csrfField }}
+      <button type="submit" class="btn btn-danger">Remove issue</button>    
+  </form>
         </td>
       </tr>
         {% endfor %}
@@ -44,4 +49,20 @@
         <button type="submit" class="btn btn-success">log work</button>
         </form>
 </div>
+
+<span class="help-block"></span>
+ 
+ <div class="modal fade confirm-modal" tabindex="-1" role="dialog" id="deleteConfirmModal">
+     <div class="modal-dialog modal-sm" role="document">
+         <div class="modal-content">
+         <div class="modal-body">
+             Are you sure?
+         </div>
+         <div class="modal-footer">
+             <button type="button" class="btn btn-success modal-ok" data-dismiss="modal">Yes</button>
+             <button type="button" class="btn btn-danger modal-cancel" data-dismiss="modal">Cancel</button>
+         </div>
+         </div>
+     </div>
+ </div>
 {% endblock %}
