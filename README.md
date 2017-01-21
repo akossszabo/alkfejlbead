@@ -152,3 +152,18 @@ Számunkra fontosabb mappák:
 ####Hardver követelmények
 
 * számítógép és windows/linux/ mac os
+
+####Kliens oldali funkciók
+
+* Validáció (Projekt létrehozása form): az alkalmazás valós időben ellenőrzi, hogy az egyes helyen megadott adatok megfelelnek-e az elvárt feltételeknek.
+* Validáció (Issue létrehozása form): az alkalmazás valós időben ellenőrzi, hogy az egyes helyen megadott adatok megfelelnek-e az elvárt feltételeknek.
+* Bejelentkezés (ajax) : Ha a felhasználó a 'login' gombra kattint egy felugró ablakban adhatja meg az adatait, sikeres belépés után az alkalmazás a kezdőoldalra irányítja a felhasználót. 
+* Issue törlése (ajax) : Issue törlésekor az alkalmazás megerősítést kér egy felugró ablakban
+* Worklog törlése (ajax) : Worklog törlésekor az alkalmazás megerősítést kér egy felugró ablakban
+
+
+#####Tesztek
+
+* Issue és worklog létrehozása és törlése (Ezek egy file-ban) 
+* Bejelentkezés tesztelése
+* Regisztráció és profil szerkesztése ( Egy file-ban) 
